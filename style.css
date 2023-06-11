@@ -1,0 +1,215 @@
+@import url("https://fonts.googleapis.com/css?family=Robotoo&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: #00010d;
+	overflow-x: hidden;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.container {
+	background: linear-gradient(to bottom, #070707, #000000, #000000, #29132d);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+	transform-origin: top left;
+	transition: transform 0.5s linear;
+	width: 100vw;
+	min-height: 100vh;
+	padding: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container.show-nav {
+	transform: rotate(-30deg);
+}
+
+.circle-container {
+	position: fixed;
+	top: -100px;
+	left: -100px;
+}
+
+.circle {
+	background-color: #ff7979;
+	height: 200px;
+	width: 200px;
+	border-radius: 50%;
+	position: relative;
+	transition: transform 0.5s linear;
+	border: rgb(220, 220, 220) solid 3px;
+}
+
+.container.show-nav .circle {
+	transform: rotate(-70deg);
+}
+
+.circle button {
+	cursor: pointer;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	height: 100px;
+	background: transparent;
+	border: 0;
+	font-size: 26px;
+	color: rgb(220, 220, 220);
+}
+
+.circle button:focus {
+	outline: none;
+}
+
+.circle button#open {
+	left: 60%;
+}
+
+.circle button#close {
+	/*it is positioned on the circle but not visible because of -100 margins*/
+	top: 60%;
+	transform: rotate(90deg);
+	transform-origin: top left;
+}
+
+.container.show-nav + nav li {
+	/*when container has show-nav and take the direct lis after that*/
+	transform: translateX(0); /*bring to original place*/
+	transition-delay: 0.3s; /*comes in a little bit after the rotation*/
+}
+
+nav {
+	position: fixed;
+	bottom: 40px;
+	left: 9;
+	z-index: 100;
+}
+
+nav ul {
+	list-style-type: none;
+	padding-left: 30px;
+}
+
+nav ul li {
+	text-transform: uppercase;
+	color: white;
+	margin: 40px 0;
+	transform: translateX(
+		-100%
+	); /*place them outside screen show when show-nav enabeld*/
+	transition: transform 0.4s ease-in;
+}
+
+nav ul li i {
+	font-size: 20px;
+	margin-right: 10px;
+}
+
+nav ul li a {
+	font-family: "Lato", sans-serif;
+	text-decoration: none;
+	color: white;
+}
+
+nav ul li a:hover {
+	font-weight: bold;
+	text-decoration: underline;
+}
+
+nav ul li + li {
+	margin-left: 15px;
+	transform: translateX(-150%); /*more inside because 30px*/
+}
+
+nav ul li + li + li {
+	margin-left: 30px;
+	transform: translateX(-200%);
+}
+
+nav ul li + li + li + li {
+	margin-left: 45px;
+	transform: translateX(-250%);
+}
+
+nav ul li + li + li + li + li {
+	margin-left: 60px;
+	transform: translateX(-350%);
+}
+
+/*logo*/
+.logo {
+	display: block;
+	color: black;
+	text-decoration: none;
+	font-size: 28px;
+	height: 70px;
+}
+
+.logo img {
+	display: block;
+	height: 70px;
+	width: auto;
+}
+
+/*main display*/
+.name {
+	color: transparent;
+	background: conic-gradient(
+		#fc5cff 12%,
+		#c03372 12%,
+		#9653b1 33%,
+		#654f93 33%,
+		#af4a4a 55%,
+		#d4823b 55%,
+		#a71367 70%,
+		#911cb2 70%,
+		#551e1e 87%,
+		#f15cff 87%
+	);
+	background-size: 50%;
+	background-clip: text;
+	-webkit-background-clip: text;
+	font-size: 145px;
+	text-align: center;
+}
+
+.name p {
+	border: none;
+	margin-top: 7%;
+	margin-bottom: 3%;
+	width: auto;
+	font-family: "Roboto", sans-serif;
+	font-weight: bold;
+}
+
+.desc {
+	text-align: center;
+	font-family: "Perpetua", fantasy;
+	font-size: 22px;
+	color: rgb(220, 220, 220);
+	font-weight: 600;
+}
+
+@media screen and (max-width: 992px) {
+	.container {
+		padding: 20px;
+	}
+	.name {
+		font-size: 70px;
+	}
+}

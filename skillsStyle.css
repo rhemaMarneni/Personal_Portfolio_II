@@ -1,0 +1,54 @@
+@import url("https://fonts.googleapis.com/css?family=Robotoo&display=swap");
+
+* {
+	box-sizing: border-box;
+}
+
+.container {
+	padding: 10px;
+}
+
+.skillbox {
+	margin: 18px auto;
+	display: grid;
+	column-gap: 11rem;
+	row-gap: 4rem;
+	grid-template-columns: repeat(3, 1fr);
+}
+
+.skill {
+	color: white;
+	height: 7rem;
+	width: 12rem;
+	text-align: center;
+	padding: 30px;
+	border: #fff solid 2px;
+	border-radius: 1.25rem;
+	font-family: "Roboto", sans-serif;
+}
+
+.skill:hover {
+	color: black;
+	background-color: white;
+	font-weight: bold;
+}
+
+/*responsiveness*/
+@media screen and (max-width: 600px) {
+	.skillbox {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.skillbox {
+		gap: 3rem;
+		font-style: 20px;
+	}
+
+	.skill {
+		height: 6.5rem;
+		width: 9rem;
+	}
+}
